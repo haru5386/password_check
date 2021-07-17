@@ -5,6 +5,7 @@ const User = require('../models/Users')
 
 router.get('/', (req, res) => {
   res.render('index')
+
 })
 
 router.post('/login', (req, res) => {
@@ -20,6 +21,10 @@ router.post('/login', (req, res) => {
       } else {
         res.render('index', { checkedUser: true, email, password })
       }
+    })
+    .catch(error => {
+      console.log(error)
+      res.render('index', { errMsg: error.message })
     })
 })
 
