@@ -1,15 +1,7 @@
 const User = require('../Users')
 const users = require('./Users.json')
+const db = require('../../config/mongoose')
 
-const mongoose = require('mongoose')
-
-mongoose.connect('mongodb://localhost/Users-password', { useNewUrlParser: true, useUnifiedTopology: true })
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error')
-})
 db.once('open', () => {
   for (user of users) {
     User.create({

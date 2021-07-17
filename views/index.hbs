@@ -1,1 +1,16 @@
-<h4>123</h4>
+<form action="/login" method="POST">
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-sm-5 mt-4">
+      <h4 class="text-center">Account Login</h4>
+      <input type="email" class="form-control mb-3" placeholder="email" name="email" value="{{email}}" required>
+      <input type="password" class="form-control mb-3" placeholder="password" name="password" value="{{password}}"
+        required>
+      {{#if checkedUser}}<div class="alert alert-danger" role="alert">
+        帳號或密碼錯誤
+      </div>{{/if}}
+      <button class="btn btn-primary" type="submit">登入</button>
+
+    </div>
+  </div>
+</form>
